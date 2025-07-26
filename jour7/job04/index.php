@@ -6,24 +6,29 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-        $str = "I'm sorry Dave I'm afraid I can't do that";
+    <?php
+        function calcul($a, $operator, $b){
 
-        $tableauDeVoyelle = ['a', 'e', 'y', 'u', 'i', 'o', 'A', 'E', 'Y', 'U', 'I', 'O\''];
-
-        $i = 0;
-
-        while (isset($str[$i])){
-            foreach ($tableauDeVoyelle as $voyelle)
-            {
-                if ($str[$i] == $voyelle)
-                {
-                    echo $str[$i] ;
-                }
+            switch ($operator){
+                case $operator == "+":
+                    return $a + $b;
+                    break;
+                case $operator == "/":
+                    return $a / $b;
+                    break;
+                case $operator == "%":
+                    return $a % $b;
+                    break;
+                case $operator == "-":
+                    return $a - $b;
+                    break;
+                default: 
+                    return "L'operation ne peux pas être effectuer";
             }
-
-            $i++;
+            
         }
+
+        echo calcul(5, "+", "2");
     ?>
 
     <details style="margin-top:30px;">

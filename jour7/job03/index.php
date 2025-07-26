@@ -7,23 +7,12 @@
 </head>
 <body>
     <?php 
-        $str = "I'm sorry Dave I'm afraid I can't do that";
-
-        $tableauDeVoyelle = ['a', 'e', 'y', 'u', 'i', 'o', 'A', 'E', 'Y', 'U', 'I', 'O\''];
-
-        $i = 0;
-
-        while (isset($str[$i])){
-            foreach ($tableauDeVoyelle as $voyelle)
-            {
-                if ($str[$i] == $voyelle)
-                {
-                    echo $str[$i] ;
-                }
-            }
-
-            $i++;
+        function getHello()
+        {
+            return "Hello la plateforme !";
         }
+
+        echo "<p>" . getHello() . "</p>";
     ?>
 
     <details style="margin-top:30px;">

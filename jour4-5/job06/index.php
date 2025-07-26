@@ -6,25 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-        $str = "I'm sorry Dave I'm afraid I can't do that";
+    <form action="" method="post" class="form-example">
+        <div class="form-example">
+            <label for="name">Enter your name: </label>
+            <input type="number" name="nombre" id="nombre" required />
+        </div>
+        <div class="form-example">
+            <input type="submit" value="pair or impair" />
+        </div>
+    </form>
 
-        $tableauDeVoyelle = ['a', 'e', 'y', 'u', 'i', 'o', 'A', 'E', 'Y', 'U', 'I', 'O\''];
-
-        $i = 0;
-
-        while (isset($str[$i])){
-            foreach ($tableauDeVoyelle as $voyelle)
-            {
-                if ($str[$i] == $voyelle)
-                {
-                    echo $str[$i] ;
-                }
+    
+    <?php
+        if (isset($_POST['nombre'])){
+            if ($_POST['nombre'] % 2 == 0){
+                echo "<p>Le nobmre est pair</p>";
+            }else {
+            echo "<p>Le nombre est impair</p>";
             }
-
-            $i++;
         }
-    ?>
+
+        ?>
 
     <details style="margin-top:30px;">
         <summary style="cursor:pointer">afficher le code de la page :</summary>

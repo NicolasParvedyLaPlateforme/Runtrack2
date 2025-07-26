@@ -1,0 +1,17 @@
+form {
+    background-color:red;
+    display:flex;
+    padding:20px;
+    flex-direction:column;
+}
+
+form select{
+    margin-bottom:20px;
+}
+
+button{
+    background-color:white;
+    border:none;
+    width:200px;
+    
+}
