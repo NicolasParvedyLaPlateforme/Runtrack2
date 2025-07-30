@@ -7,13 +7,16 @@
 </head>
 <body>
     <?php
-        $hauteur = 20;
+        //Parcours la hauteur de mon triangle
+        
 
-        for ($i = 0; $i < $hauteur; $i++)
+        $hauteur = 5;
+
+        for ($i = 0; $i <= $hauteur; $i++)
         {
             for($b = $hauteur-$i; $b > 0; $b--)
             {
-                echo "<span style='color:white;'>_</span>";
+                echo "&nbsp;&nbsp";
             }
             
 
@@ -21,18 +24,18 @@
 
             for ($a = 0; $a < $i*2; $a++)
             {
-                echo "<span style='color:white;'>_</span>";
+
+                if ($i == $hauteur){
+                    echo "_";
+                }else {
+                    echo "&nbsp;&nbsp";
+                }
             }
 
-            echo "\\";
-
-            echo "<br>";
+            echo "\\ <br>";
         }
 
-        for ($i = 0; $i < $hauteur*2; $i++)
-        {
-            echo "_";
-        }
+        
     ?>
 
     <details style="margin-top:30px;">

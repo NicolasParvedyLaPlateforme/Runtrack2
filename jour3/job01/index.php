@@ -7,15 +7,15 @@
 </head>
 <body>
     <?php 
-    $tableau = [200, 204, 173, 98, 171, 404, 459];
+    $tableauDeNombres = [200, 204, 173, 98, 171, 404, 459];
 
-    foreach ($tableau as $value)
+    foreach ($tableauDeNombres as $nombre)
     {
-        if ($value % 2 == 0)
+        if ($nombre % 2 == 0)
         {
-            echo "$value est pair <br>";
+            echo "$nombre est pair <br>";
         }else {
-            echo "$value est impair <br>";   
+            echo "$nombre est impair <br>";   
         }
     }
 

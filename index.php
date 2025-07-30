@@ -10,6 +10,11 @@ $fullPath = realpath($baseDir . DIRECTORY_SEPARATOR . $relativePath);
 if ($fullPath === false || strpos($fullPath, $baseDir) !== 0) {
     die("Accès non autorisé");
 }
+var_dump($_SERVER['REMOTE_ADDR']);
+if ($_SERVER['REMOTE_ADDR'] != "94.231.43.157" && $_SERVER['REMOTE_ADDR'] != '127.0.0.1')
+{
+    die("Accès non autorisé");
+}
 
 // Lire les éléments du dossier
 $items = scandir($fullPath);

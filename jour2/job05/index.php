@@ -18,24 +18,6 @@
             //Si il est divisible seulement 2 fois alors j'affiche le nombre
             //Je repasse à zéro le compteur
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         $nbDivide = 0;
 
         for($i = 0; $i <= 1000; $i++)
@@ -55,28 +37,6 @@
 
             $nbDivide = 0;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

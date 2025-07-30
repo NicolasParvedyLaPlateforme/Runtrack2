@@ -25,7 +25,7 @@
             }else if ($i >= 25 && $i <= 50)
             {
                 //SI le nombre vaut 42 
-                if ($i == 42)
+                if ($i === 42)
                 {
                     //Alors écrit LaPlateforme_
                     echo "La plateforme_<br>";
