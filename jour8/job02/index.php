@@ -2,17 +2,19 @@
 
 <?php 
     session_start();
-    if (isset($_SESSION['nbvisites']))
+    $nbVisites = 0;
+    if (isset($_COOKIE['nbvisites']))
     {
-        $_SESSION['nbvisites']++;
+        $nbVisites = $_COOKIE['nbvisites'] + 1;
+        setcookie('nbvisites', $nbVisites, time() + (86400 * 30), "/"); 
     }else {
-        $_SESSION['nbvisites'] = 1;
+        setcookie('nbvisites', 1, time() + (86400 * 30), "/"); 
     }
 
-    echo "le site a été visité : " . $_SESSION['nbvisites'] . "<br>";
+    echo "le site a été visité : " . $_COOKIE['nbvisites'] . "<br>";
 
     if (isset($_POST['reset'])){
-        $_SESSION['nbvisites'] = 0;
+        setcookie('nbvisites', 1, time() + (86400 * 30), "/"); 
         //on fait un refresh pour bien supprimer les données du form
         header('Refresh:0');
     }
