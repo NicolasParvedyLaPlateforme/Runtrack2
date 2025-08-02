@@ -27,6 +27,8 @@ echo "<p>$myBool</p>";
 
 ?>
 
+<a href="https://github.com/NicolasParvedyLaPlateforme/Runtrack2/blob/main/jour1/job01/index.php">Voir le code</a>
+
 <details style="margin-top:30px;">
         <summary style="cursor:pointer">afficher le code de la page :</summary>
         <div style="background-color:#FAEBD7;color:white;padding:2px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">

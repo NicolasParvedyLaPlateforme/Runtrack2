@@ -9,7 +9,7 @@
     <form action="" method="post" class="form-example">
         <div class="form-example">
             <label for="name">Enter your name: </label>
-            <input type="number" name="nombre" id="nombre" required />
+            <input type="text" name="nombre" id="nombre"/>
         </div>
         <div class="form-example">
             <input type="submit" value="pair or impair" />
@@ -18,12 +18,17 @@
 
     
     <?php
-        if (isset($_POST['nombre'])){
-            if ($_POST['nombre'] % 2 == 0){
-                echo "<p>Le nobmre est pair</p>";
-            }else {
-            echo "<p>Le nombre est impair</p>";
+        if (isset($_POST['nombre']) ){
+            try {
+                if ((int)$_POST['nombre'] % 2 == 0){
+                    echo "<p>Le nombre est pair</p>";
+                }else {
+                    echo "<p>Le nombre est impair</p>";
+                }
+            }catch (Exception $e){
+                echo "Veuillez renseigner un nombre";
             }
+            
         }
 
         ?>
