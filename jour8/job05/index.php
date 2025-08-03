@@ -8,8 +8,22 @@
         header('Refresh: 0');
     }
 
+    //Tout les combi possible, on a associes à une valeur vide car on veut le rendre tableau associatif est utilisé la clé 
+    $possibleCombi = [
+        ['0_0' => "", '0_1' => "", '0_2' => ""], 
+        ['1_0' => "", '1_1' => "", '1_2' => ""],
+        ['2_0' => "", '2_1' => "", '2_2' => ""],
+        ['0_0' => "", '1_0' => "", '2_0' => ""],
+        ['0_1' => "", '1_1' => "", '2_1' => ""],
+        ['0_2' => "", '1_2' => "", '2_2' => ""],
+        ['0_0' => "", '1_1' => "", '2_2' => ""],
+        ['0_2' => "", '1_1' => "", '2_0' => ""],
+    ];
+
     //Je crée mon tableau de valeur si il n'existe pas
     if (!isset($_SESSION['game'])){
+        
+        $_SESSION['end'] = false;
         $_SESSION['game'] = ['0_0' => '', '0_1' => '','0_2' => '','1_0' => '','1_1' => '','1_2' => '','2_0' => '','2_1' => '','2_2' => ''];
     }
 
@@ -24,19 +38,65 @@
     $turn = $_SESSION['turn'] ? "X" : "O";
 
     //je boucle mon post pour obtenir ma clé et bien sur différent du bouton de recommencer ou de résultat vide
-    foreach($_POST as $key => $value){
-        if ($key != "cancel" && $_SESSION['game'][$key] == ''){
-            $_SESSION['game'][$key] = $turn;
-        }else {
-            echo "Cette case est déjà prise <br>";
+    if (!$_SESSION['end']){
+        foreach($_POST as $key => $value){
+            if ($key != "cancel" && $_SESSION['game'][$key] == ''){
+                $_SESSION['game'][$key] = $turn;
+            }else {
+                echo "Cette case est déjà prise <br>";
+            }
+        }
+    }
+    
+
+    //On vérifie l'ensemble des possibilité
+    foreach ($possibleCombi as $combi){
+        $player = "";
+        //si i vaut 0 donc joueur x sinon O
+        for ($i = 0; $i < 2; $i++){
+            $compteur = 0;
+
+            if ($i == 0){
+                $player = "X";
+            }else {
+                $player = "O";
+            }
+
+            //On vérifie si la la clé existe dans le combo actuel si c'est le cas alors on vérifie si c'est le jouer X ou O et on compte
+            foreach ($_SESSION['game'] as $key => $value){
+                if (isset($combi[$key]))
+                {
+                    if ($_SESSION['game'][$key] == $player){
+                        $compteur++;
+                    }
+                }
+                
+            }
+
+            //Au bout de 3 dans le compteur alors ça veut dire qu'il y a une combinaison de X ou O et donc un joueur à gagné et fin de la partie
+            if ($compteur == 3){
+                echo "<p>Le joueur $player a gagné, fin de la partie.</p>";
+                $_SESSION['end'] = true;
+                break;
+            }
+            
         }
     }
 
-    //Dès que 3 croix, ou 3 rond ou qu'il ne soit plus possible de gagner alors afficher le résultat
-    
-    
-    
-    //Tour du joueur actuel
+    //Dernière vérification si toutes les cases sont coché 
+    $free = false;
+    foreach($_SESSION['game'] as $case){
+        if ($case == ""){
+            $free = true;
+        }
+    }
+
+    //si aucune case n'est libre c'est donc match nul
+    if (!$free)
+    {
+        $_SESSION['end'] = true;
+        echo "<p>Fin de la partie, aucun des joueurs n'a gagné, c'est donc un match nul !";
+    }   
     
 ?>
 <style>
