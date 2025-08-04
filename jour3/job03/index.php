@@ -7,12 +7,15 @@
 </head>
 <body>
     <?php 
+        //variable de chaine de caractère
         $str = "I'm sorry Dave I'm afraid I can't do that";
 
-        $tableauDeVoyelle = ['a', 'e', 'y', 'u', 'i', 'o', 'A', 'E', 'Y', 'U', 'I', 'O\''];
+        //Je crée un tableau de voyelle qui contient les minuscule et majuscule
+        $tableauDeVoyelle = ['a', 'e', 'y', 'u', 'i', 'o', 'A', 'E', 'Y', 'U', 'I', 'O'];
 
         $i = 0;
 
+        //Je vérifie chaque caractère de ma chaîne de caractère et je vérifie si elle correspond à une voyelle 
         while (isset($str[$i])){
             foreach ($tableauDeVoyelle as $voyelle)
             {

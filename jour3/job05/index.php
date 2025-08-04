@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php
+        
         $str = "On n'est pas le meilleur quand on le croit mais quand on le sait";
         $tableauDeVoyelle = ['a', 'e', 'y', 'u', 'i', 'o', 'A', 'E', 'Y', 'U', 'I', 'O'];
 
@@ -15,8 +16,10 @@
 
         $i = 0;
 
+        //Je boucle jusqu'à la dernière lettre
         while (isset($str[$i])){
             $voyelleBool = false;
+            //Je vérifie si elle est une voyelle et je compte à chaque fois que je tombe sur une voyelle
             foreach ($tableauDeVoyelle as $voyelle)
             {
                 if ($str[$i] == $voyelle)
@@ -26,6 +29,7 @@
                 }
             }
 
+            //Si ce n'est jamais tombé sur une voyelle et que ce n'est pas un " " ou ' alors je le compte comme une consonne
             if (!$voyelleBool){
                 
                 if ($str[$i] != " " && $str[$i] != "'")

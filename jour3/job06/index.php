@@ -13,22 +13,26 @@
 
         $i = 0; 
 
+        //Je compte le nombre de caractère et je fais i-- pour annuler le ++ de la dernière itération
         while (isset($str[$i]))
         {
             $i++;
         }
-
+        
         $i--;
 
+        //Je boucle jusqu'à parcourir toutes les lettres de droite à gauche
         while ($i != -1){
             $yesAccent = false;
 
+            //On vérifie chaque à chaque fois si la lettre précédente et celle actuel équivaut à un accent, si c'est le cas alors on dit que le prochain est un accent et on saute la prochaine itération car un accent équivaut à 2 caractères
             if (isset($str[$i]))
             {
                 foreach($tableauAccent as $accent)
                 {
                     if ($str[$i-1] . $str[$i] == $accent && !$yesAccent)
                     {
+                        //On affiche l'accent 
                         echo $str[$i-1] . $str[$i];
                         $yesAccent = true;
                         $i--;
@@ -36,6 +40,7 @@
 
                 }
 
+                //on affiche notre caractères si ce n'est pas un accent
                 if (!$yesAccent)
                 {
                     echo $str[$i];

@@ -7,8 +7,10 @@
 </head>
 <body>
     <?php 
+    //Faire un tableau de nombre
     $tableauDeNombres = [200, 204, 173, 98, 171, 404, 459];
 
+    //On vérifie chacun des nombres si c'est divisible par 2 et que le reste vaut 0, si vrai alors c'est pair sinon impair
     foreach ($tableauDeNombres as $nombre)
     {
         if ($nombre % 2 == 0)

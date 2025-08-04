@@ -8,30 +8,46 @@
 <body>
     <?php
         
-
+        //j'assigne ma largeur et hauteur
         $largeur = 20;
         $hauteur = 10;
 
+        //Je boucle for pour faire mon trait du haut
+        echo "&nbsp;";
         for ($i = 0; $i <= $largeur; $i++)
         {
-            echo "-";
+            echo "_";
         }
 
+        //Un retour à la ligne
         echo "<br>";
 
+        //Je boucle pour que chaque ligne j'ai mon côté gauche, espace et côté droit
         for ($i = 0; $i < $hauteur; $i++)
         {
             echo "|";
-            for ($a = 0; $a <= $largeur-1; $a++)
-            {
-                echo "<span style=\"color:white\">-</span>";
+            
+
+            if ($i == $hauteur-1){
+                for ($i = 0; $i <= $largeur; $i++)
+                {
+                    echo "_";
+                }
             }
+            
+            else {
+                for ($a = 0; $a <= $largeur; $a++)
+                {
+                    echo "&nbsp;&nbsp";
+                }
+            }
+
+            
             echo "|<br>";
+
+            //Dès que j'arrive à la dernière ligne alors je remplace les espacce par des "_" pour faire ma ligne du bas
         }
-        for ($i = 0; $i <= $largeur; $i++)
-        {
-            echo "-";
-        }
+        
     ?>
 
     <details style="margin-top:30px;">

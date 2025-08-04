@@ -10,7 +10,7 @@
         $str = "Dans l'espace, personne ne vous entend crier";
 
         $i = 0; 
-
+        //Je boucle jusqu'à atteindre atteindre la dernière caractère et je compte à chaque itération
         while (isset($str[$i])){
             $i++;
         }
